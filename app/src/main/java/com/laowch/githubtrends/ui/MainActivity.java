@@ -156,6 +156,7 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener 
             }
         });
 
+        //注册本地广播
         IntentFilter languageFilter = new IntentFilter(Constants.ACTION_SELECTED_LANGUAGES_CHANGE);
         LocalBroadcastManager.getInstance(this).registerReceiver(languagesChangedReceiver, languageFilter);
     }

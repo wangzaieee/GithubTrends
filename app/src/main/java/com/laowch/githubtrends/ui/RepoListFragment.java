@@ -55,13 +55,15 @@ public class RepoListFragment extends Fragment {
         mRequestQueue = Volley.newRequestQueue(getContext());
     }
 
+    //TODO 这个生命周期是干啥的？
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //TODO 这样运行在主线程中
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
-                swipeRefreshLayout.setRefreshing(true);
+                swipeRefreshLayout.setRefreshing(true);//并没有触发onRefresh()方法
             }
         });
         executeGetRepos();
