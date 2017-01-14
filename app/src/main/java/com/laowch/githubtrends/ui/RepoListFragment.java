@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,6 +112,8 @@ public class RepoListFragment extends Fragment {
     private void executeGetRepos() {
         // network request
         String url = Constants.URL + language.path + "_" + timeSpan;
+
+        Log.d("guiyang", url);
 
         GsonRequest<Repo[]> request = new GsonRequest(url, Repo[].class, new Response.Listener<Repo[]>() {
             @Override
