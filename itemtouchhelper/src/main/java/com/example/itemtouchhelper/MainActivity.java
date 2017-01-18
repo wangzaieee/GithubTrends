@@ -3,7 +3,6 @@ package com.example.itemtouchhelper;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements OnStartDragListen
         RecyclerView.LayoutManager manager = new GridLayoutManager(mContext, 3);
         mRecyclerView.setLayoutManager(manager);
         //添加默认分割线
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+//        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
         mRecyclerView.setAdapter(adapter);
 
         SimpleItemTouchHelperCallback callback = new SimpleItemTouchHelperCallback(adapter);
