@@ -34,10 +34,8 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        parent.addView(new TextView(mContext));
-        //TODO 为什么会影响ItemTouchHelper的作用范围
-        View v = mInflater.inflate(R.layout.item, new FrameLayout(mContext), false);//必须要是LinearLayout的LayoutParams.不能是ViewGroup的LayoutParams
-        v.setBackgroundColor(Color.RED);
+        //最后一个为true为什么会影响ItemTouchHelper的作用范围 (因为添加在item上的根布局是wrap_content)
+        View v = mInflater.inflate(R.layout.item, new FrameLayout(mContext), false);
         return new MyViewHolder(v);
     }
 
@@ -77,7 +75,7 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         notifyItemRemoved(pos);
     }
 
-    private class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
 
         public TextView mTvItem;
         public ImageView mImageView;
@@ -86,6 +84,16 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             super(itemView);
             mTvItem = (TextView) itemView.findViewById(R.id.item);
             mImageView = (ImageView) itemView.findViewById(R.id.drag_bar);
+        }
+
+        @Override
+        public void onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY);
+        }
+
+        @Override
+        public void onItemClear() {
+            itemView.setBackgroundColor(0);
         }
     }
 }

@@ -18,5 +18,5 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
-        android:src="@android:drawable/btn_star" />
+        android:src="@drawable/slider" />
 </RelativeLayout>
